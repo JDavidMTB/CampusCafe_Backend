@@ -3,29 +3,43 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+      </profile>
+      <profile name="Annotation profile for empleado-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="cliente-service" />
+        <module name="categoria-service" />
+        <module name="empleado-service" />
+        <module name="detalle-pedido-service" />
+      </profile>
       <profile name="Annotation profile for sucursal-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="sucursal-service" />
         <module name="pago-service" />
-        <module name="cliente-service" />
         <module name="producto-service" />
-        <module name="categoria-service" />
-        <module name="empleado-service" />
         <module name="pedido-service" />
         <module name="inventario-service" />
-        <module name="detalle-pedido-service" />
         <module name="reporte-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
       <module name="categoria-service" options="-parameters" />
       <module name="cliente-service" options="-parameters" />
       <module name="detalle-pedido-service" options="-parameters" />
