@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/CampusCafe - Backend/categoria-service/pom.xml" />
         <option value="$PROJECT_DIR$/CampusCafe - Backend/inventario-service/pom.xml" />
         <option value="$PROJECT_DIR$/CampusCafe - Backend/detalle-pedido-service/pom.xml" />
+        <option value="$PROJECT_DIR$/CampusCafe - Backend/api-gateway/pom.xml" />
       </list>
     </option>
   </component>
