@@ -1,4 +1,4 @@
-package cl.duoc.campuscafe.pedido_service.config;
+package cl.duoc.campuscafe.producto_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

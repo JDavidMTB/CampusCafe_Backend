@@ -1,9 +1,8 @@
-package cl.duoc.campuscafe.cliente_service.config;
+package cl.duoc.campuscafe.producto_service.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,14 +13,11 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("CampusCafe - Cliente Service API")
+                        .title("CampusCafe - cliente Service API") // ← cambia esto
                         .version("1.0.0")
-                        .description("API REST para la gestión de clientes del sistema CampusCafe")
+                        .description("API para gestión de categorías") // ← y esto
                         .contact(new Contact()
                                 .name("Equipo CampusCafe")
-                                .email("campuscafe@duoc.cl"))
-                        .license(new License()
-                                .name("Apache 2.0")
-                                .url("https://springdoc.org")));
+                                .email("campuscafe@duoc.cl")));
     }
 }
