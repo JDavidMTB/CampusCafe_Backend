@@ -9,7 +9,7 @@ Sistema Backend desarrollado bajo una arquitectura de **Microservicios** para la
 
 - Juan David Motaban
 - Benjamín Salas
-- Lukas Avendaño
+- Lucas Avendaño
 
 ---
 
