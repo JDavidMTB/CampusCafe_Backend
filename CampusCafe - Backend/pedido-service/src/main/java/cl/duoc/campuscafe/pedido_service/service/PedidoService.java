@@ -4,18 +4,17 @@ import cl.duoc.campuscafe.pedido_service.entity.Pedido;
 import cl.duoc.campuscafe.pedido_service.repository.PedidoRepository;
 import cl.duoc.campuscafe.pedido_service.dto.ClienteRemoteDTO;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class PedidoService {
 
-    private static final Logger log = LoggerFactory.getLogger(PedidoService.class);
     private final PedidoRepository repository;
     private final RestTemplate restTemplate;
 
@@ -24,11 +23,10 @@ public class PedidoService {
     public Pedido procesarPedido(Pedido pedido) {
         log.info("Iniciando validación remota del cliente ID: {}", pedido.getClienteId());
 
-        // Apuntamos remotamente al puerto del Cliente Service
-        String urlCliente = "http://localhost:8083/api/clientes/" + pedido.getClienteId();
+
+        String urlCliente = "http://cliente-service:8083/api/clientes/" + pedido.getClienteId();
 
         try {
-            // Consulta REST sincrónica por HTTP GET
             ClienteRemoteDTO cliente = restTemplate.getForObject(urlCliente, ClienteRemoteDTO.class);
             if (cliente == null) {
                 throw new RuntimeException("El cliente remoto no devolvió datos válidos.");

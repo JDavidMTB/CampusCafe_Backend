@@ -30,7 +30,7 @@ public class ProductoService {
         log.info("Validando categoría remota ID: {}", producto.getCategoriaId());
 
         // URL del microservicio vecino
-        String url = "http://localhost:8082/api/categorias/" + producto.getCategoriaId();
+        String url = "http://categoria-service:8082/api/categorias/" + producto.getCategoriaId();
 
         try {
             // Hacemos la petición remota vía HTTP GET
