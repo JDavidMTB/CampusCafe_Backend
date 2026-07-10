@@ -257,17 +257,6 @@ cd categoria-service
 
 ---
 
-## 🌐 Despliegue remoto
-
-*(completar si se desplegó en Railway, Render u otra plataforma)*
-
-```
-URL Gateway remoto: 
-URL Swagger remoto: 
-```
-
----
-
 ## 📌 Características
 
 - Arquitectura basada en Microservicios
