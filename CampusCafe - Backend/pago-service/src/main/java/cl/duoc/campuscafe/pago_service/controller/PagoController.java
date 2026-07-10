@@ -1,8 +1,10 @@
 package cl.duoc.campuscafe.pago_service.controller;
 
 import cl.duoc.campuscafe.pago_service.entity.Pago;
-import cl.duoc.campuscafe.pago_service.repository.PagoRepository;
+import cl.duoc.campuscafe.pago_service.service.PagoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -10,11 +12,21 @@ import java.util.List;
 @RequestMapping("/api/pagos")
 @RequiredArgsConstructor
 public class PagoController {
-    private final PagoRepository repository;
+
+    private final PagoService service; // Conectado al Service
 
     @GetMapping
-    public List<Pago> listar() { return repository.findAll(); }
+    public List<Pago> listar() {
+        return service.obtenerTodos();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Pago> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(service.obtenerPorId(id));
+    }
 
     @PostMapping
-    public Pago procesarPago(@RequestBody Pago pago) { return repository.save(pago); }
+    public ResponseEntity<Pago> crear(@RequestBody Pago pago) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.registrarPago(pago));
+    }
 }
