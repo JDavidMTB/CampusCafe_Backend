@@ -9,17 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
       </profile>
-      <profile name="Annotation profile for empleado-service" enabled="true">
+      <profile name="Annotation profile for pedido-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.32/lombok-1.18.32.jar" />
         </processorPath>
-        <module name="cliente-service" />
-        <module name="categoria-service" />
-        <module name="empleado-service" />
-        <module name="detalle-pedido-service" />
+        <module name="pedido-service" />
       </profile>
       <profile name="Annotation profile for sucursal-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -30,9 +27,12 @@
         </processorPath>
         <module name="sucursal-service" />
         <module name="pago-service" />
+        <module name="cliente-service" />
         <module name="producto-service" />
-        <module name="pedido-service" />
+        <module name="categoria-service" />
+        <module name="empleado-service" />
         <module name="inventario-service" />
+        <module name="detalle-pedido-service" />
         <module name="reporte-service" />
       </profile>
     </annotationProcessing>
