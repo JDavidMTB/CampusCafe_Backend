@@ -2,37 +2,31 @@ package cl.duoc.campuscafe.categoria_service.service;
 
 import cl.duoc.campuscafe.categoria_service.entity.Categoria;
 import cl.duoc.campuscafe.categoria_service.repository.CategoriaRepository;
-import cl.duoc.campuscafe.categoria_service.exception.CategoriaNoEncontradaException;
-import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class CategoriaService {
 
-    private static final Logger log = LoggerFactory.getLogger(CategoriaService.class);
-    private final CategoriaRepository repository;
+    private final CategoriaRepository categoriaRepository;
 
-    public List<Categoria> obtenerTodas() {
-        log.info("Consultando todas las categorías");
-        return repository.findAll();
+    public CategoriaService(CategoriaRepository categoriaRepository) {
+        this.categoriaRepository = categoriaRepository;
     }
 
+    // 1. Método para el POST del controlador (service.guardar)
     public Categoria guardar(Categoria categoria) {
-        log.info("Guardando categoría: {}", categoria.getNombre());
-        return repository.save(categoria);
+        return categoriaRepository.save(categoria);
     }
 
+    // 2. Método para el GET por ID del controlador (service.obtenerPorId)
     public Categoria obtenerPorId(Long id) {
-        log.info("Buscando categoría ID {}", id);
-        return repository.findById(id)
-                .orElseThrow(() -> {
-                    log.error("Categoría no encontrada ID {}", id);
-                    return new CategoriaNoEncontradaException(id);
-                });
+        return categoriaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Error: La categoria con ID " + id + " no existe."));
+    }
+
+    // 3. Método para el GET general del controlador (service.obtenerTodas)
+    public List<Categoria> obtenerTodas() {
+        return categoriaRepository.findAll();
     }
 }
