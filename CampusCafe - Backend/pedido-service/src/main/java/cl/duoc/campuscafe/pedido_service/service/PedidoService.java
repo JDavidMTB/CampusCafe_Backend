@@ -25,7 +25,7 @@ public class PedidoService {
         log.info("Iniciando validación remota del cliente ID: {}", pedido.getClienteId());
 
         // Apuntamos remotamente al puerto del Cliente Service
-        String urlCliente = "http://localhost:8083/api/clientes/" + pedido.getClienteId();
+        String urlCliente = "http://cliente-service/api/clientes/" + pedido.getClienteId();
 
         try {
             // Consulta REST sincrónica por HTTP GET
